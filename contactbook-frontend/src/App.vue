@@ -1,28 +1,30 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
-
+import AppHeader from "@/components/AppHeader.vue";
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <div>
+    <header>
+      <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+      <div class="wrapper">
+        <HelloWorld msg="You did it!" />
+      </div>
+    </header>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <main>
+      <TheWelcome />
+    </main>
+
+    <div id="app" class="page">
+      <AppHeader />
+      <div class="container mt-3">
+        <router-view />
+      </div>
     </div>
-  </header>
 
-  <main>
-    <TheWelcome />
-  </main>
-
-  <h1>Tu Minh Uy Xin chao, vue.js</h1>
-  <div id="app">
-    <AppHeader />
-    <div class="container mt-3">
-      <router-view />
-    </div>
+    <h1>Tu Minh Uy Xin chao, vue.js</h1>
   </div>
 </template>
 
@@ -53,29 +55,7 @@ header {
     flex-wrap: wrap;
   }
 }
-</style>
-*/
 
-<script>
-import AppHeader from "@/components/AppHeader.vue";
-export default {
-  components:{
-    AppHeader,
-  },
-};
-</script>
-
-<template>
-  <h1>Tu Minh Uy Xin chao, vue.js</h1>
-  <div id="app">
-    <AppHeader />
-    <div class="container mt-3">
-      <router-view />
-    </div>
-  </div>
-</template>
-
-<style>
 .page {
   max-width: 400px;
   margin: auto;
