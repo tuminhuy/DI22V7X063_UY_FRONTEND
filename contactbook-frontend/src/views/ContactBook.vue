@@ -46,6 +46,7 @@ export default {
         InputSearch,
         ContactList,
     },
+    //đoạn mã xử lý đầy đủ
     data() {
         return {
             contacts: [],
