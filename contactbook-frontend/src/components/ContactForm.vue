@@ -31,15 +31,17 @@
             <button v-if="contactLocal._id" type="button" class="ml-2 btn btn-danger" @click="deleteContact">
                 Xóa
             </button>
-            <button type="button" class="ml-2 btn btn-danger" @click="Cancel">
+            <button type="button" class="ml-2 btn btn-danger" @click="cancel">
                 Thoát
             </button>
         </div>
     </Form>
 </template>
 <script>
+
+import { ref } from "vue";
 import * as yup from "yup";
-import * as yup from "yup";
+import { useField, useForm } from "vee-validate";
 import { Form, Field, ErrorMessage } from "vee-validate";
 export default {
     components: {
@@ -51,8 +53,9 @@ export default {
     props: {
         contact: { type: Object, required: true }
     },
-    data() {
-        const contactFormSchema = yup.object().shape({
+ //   data() {
+    setup() {
+        const contactFormSchema = ref( yup.object().shape({
             name: yup
                 .string()
                 .required("Tên phải có giá trị.")
@@ -69,7 +72,8 @@ export default {
                     /((09|03|07|08|05)+([0-9]{8})\b)/g,
                     "Số điện thoại không hợp lệ."
                 ),
-        });
+        })
+        );
         return {
             // Chúng ta sẽ không muốn hiệu chỉnh props, nên tạo biến cục bộ
             // contactLocal để liên kết với các input trên form
@@ -84,18 +88,18 @@ export default {
         deleteContact() {
             this.$emit("delete:contact", this.contactLocal.id);
         },
-        Cancel() {
-            const reply = window.confirm('You have unsaved changes! Do you want to
-leave ? ')
-if (!reply) {
-                // stay on the page if
-                // user clicks 'Cancel'
-                return false
-            }
-            else this.$router.push({ name: "contactbook" });
+        cancel() {
+            const reply = window.confirm('Bạn có những thay đổi chưa lưu, Bạn có muốn thoát ra')
+    if (!reply) {
+               
+                // ỡ lại trang bấm cancel
+                return false;
+            } else {
+                this.$router.push({name: "contactbook"});
         }
-    },
-};
+    }
+}
+}
 </script>
 <style scoped>
 @import "@/assets/form.css";

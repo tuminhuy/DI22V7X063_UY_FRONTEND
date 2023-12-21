@@ -19,7 +19,7 @@
                 </button>
                 <button class="btn btn-sm btn-danger" @click="removeAllContacts">
                     <i class="fas fa-trash"></i> Xóa tất cả
-                </button>
+                </button>   
             </div>
         </div>
         <div class="mt-3 col-md-6">
@@ -103,6 +103,7 @@ export default {
             }
         },
         goToAddContact() {
+            console.log("Navigating to add contact page"); // Debug line
             this.$router.push({ name: "contact.add" });
         },
     },
