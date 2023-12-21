@@ -24,7 +24,7 @@ import AppHeader from "@/components/AppHeader.vue";
       </div>
     </div>
 
-    <h1>Tu Minh Uy Xin chao, vue.js</h1>
+    <h1>Tu Minh Uy Xin chao </h1>
   </div>
 </template>
 
