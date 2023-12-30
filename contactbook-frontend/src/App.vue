@@ -1,7 +1,10 @@
 <script setup>
 //import HelloWorld from './components/HelloWorld.vue'
 //import TheWelcome from './components/TheWelcome.vue'
-import AppHeader from "@/components/AppHeader.vue";
+//import AppHeader from "@/components/AppHeader.vue";
+import AppHeader from './components/AppHeader.vue';
+
+
 </script>
 
 <template>
